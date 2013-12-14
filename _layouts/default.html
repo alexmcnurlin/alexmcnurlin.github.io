@@ -6,39 +6,74 @@
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
 
+
+        <!--le bootsrap-->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/new.css">
 
     </head>
     <body>
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-black" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" id="navlink" href="/">Alex McNurlin</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a id="navlink" href="#">Link</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="pull-right" href="https://www.facebook.com/alex.mcnurlin">
+                               <i class="fa fa-facebook fa-lg icon-white"></i>
+                            </a>
+                            <a class="pull-right" href="https://twitter.com/ninjabassist777">
+                                <i class="fa fa-twitter fa-lg icon-white"></i>
+                            </a>
+                            <a class="pull-right" href="http://9gag.com/u/mrjoe5796/likes">
+                                <img height="20px" class="pull-right" src="http://upload.wikimedia.org/wikipedia/commons/9/97/9GAG_new_logo.svg">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="site">
+              <div class="header">
+                <h1 class="title"><a href="/">{{ site.name }}</a></h1>
+                <a class="extra" href="/">home</a>
+              </div>
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
+              {{ content }}
 
-          {{ content }}
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
+              <div class="footer">
+                <div class="contact">
+                  <p>
+                    Alex McNurlin<br />
+                    What You Are<br />
+                    alemcnurlin@gmail.com
+                  </p>
+                </div>
+                <div class="contact">
+                  <p>
+                    <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+                    <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
         </div>
 
+            <!--le jquery and bootsrap-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     </body>
 </html>

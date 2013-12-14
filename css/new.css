@@ -1,0 +1,19 @@
+.container {
+    max-width: 900px;
+    padding-top: 10px;
+}
+
+.navbar-black {
+    background-color: black;
+}
+
+.icon-white {
+    color: white;
+}
+
+#navlink {
+    color: white;
+}
+#navlink a:hover {
+    background-color: #fff;
+}
