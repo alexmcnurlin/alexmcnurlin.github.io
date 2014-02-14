@@ -1,3 +1,4 @@
+a {H  }
 .container {
     max-width: 900px;
     padding-top: 10px;
@@ -32,6 +33,10 @@ border-radius: 2px;
 
 .icon-white {
     color: white;
+}
+
+.post-header {
+  border-bottom: 1px solid #bbb;
 }
 
 footer > hr {
