@@ -1,4 +1,5 @@
-name: Your New Jekyll Site
+name: Alex McNurlin
 markdown: redcarpet
 pygments: true
 exclude: ["vendor"]
+port: 7777
