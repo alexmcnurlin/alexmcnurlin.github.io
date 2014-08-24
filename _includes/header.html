@@ -10,9 +10,9 @@
         </button>
       </span>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Human</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Web Developer</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Musician</a></li>
+        {% for page in site.data.nav_links %}
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endfor %}
       </ul>
     </div>
   </nav>
