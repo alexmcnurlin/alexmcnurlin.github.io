@@ -1,5 +1,9 @@
 name: Alex McNurlin
 markdown: redcarpet
-pygments: true
+highlighter: true
 exclude: ["vendor"]
 port: 7777
+
+sass:
+  style: compressed
+  sass_dir: "/public/css/"

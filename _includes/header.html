@@ -1,16 +1,18 @@
 <header>
-  <div class="container-fluid">
-    Alex McNurlin:
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-        Human
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Human</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Web Developer</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Musician</a></li>
-      </ul>
+  <nav>
+    <div class="container-fluid">
+      Alex McNurlin:
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+          {{ page.nav }}
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Human</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Web Developer</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Musician</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </nav>
 </header>
