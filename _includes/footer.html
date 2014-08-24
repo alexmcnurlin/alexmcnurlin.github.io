@@ -3,5 +3,8 @@
   <small class="text-muted">
     Alex McNurlin | alemcnurlin@gmail.com
   </small>
+  {% for network in site.data.social_networks %}
+    <a role="menuitem" tabindex="-1" href="{{ network.url }}"><i class="fa {{ network.icon }}"></i></a> |
+  {% endfor %}
 </footer>
 

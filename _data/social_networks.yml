@@ -1,0 +1,9 @@
+# NOTE: The 'icon' item is inserted as a class of an 'i' tag, therefore the icon should be a fontawesome icon
+- name: "Facebook"
+  url: "http://www.facebook.com/"
+  icon: "fa-facebook"
+  css 
+
+- name: "Twitter"
+  url: "http://www.twitter.com/"
+  icon: "fa-twitter"

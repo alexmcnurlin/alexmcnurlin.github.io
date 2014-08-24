@@ -65,23 +65,25 @@ a:visited {
 }
 
 header {
-  font-size: 12px;
+  font-size: 36px;
   color: #ddd;
   background-color: #f8f8f8;
   text-align: left;
 }
 
 nav {
+  border-bottom: 2px solid #ddd;
+
   .dropdown {
     display: inline-block;
 
     button {
       /*This copies most of the default bootstrap button styling*/
       border: 2px solid rgba(0, 0, 0, 0);
+      border-bottom: none;
       background-color: #f8f8f8;
       color: #333;
       display: inline-block;
-      /*padding: 0px 12px;*/
       text-align: center;
       white-space: nowrap;
       cursor: pointer;
@@ -91,6 +93,7 @@ nav {
       &:focus {
         @include fade-in-link;
         border: 2px solid #ddd;
+        border-bottom: none;
         color: #ddd;
       }
     }
@@ -176,6 +179,10 @@ nav {
   border-top: 4px solid #eee;
   margin-top: 2em;
   overflow: hidden;
+
+  {% for network in site.data.social_networks %}
+    {{ network.css }}
+  {% endfor %}
 }
 
 .footer .contact {
