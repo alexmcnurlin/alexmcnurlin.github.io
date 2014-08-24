@@ -13,6 +13,13 @@
   padding: 0;
 }
 
+@mixin fade-in-link {
+  transition: color 300ms, background-color 300ms, border-color 300ms, opacity 300ms;
+  -moz-transition: color 300ms, background-color 300ms, border-color 300ms, opacity 300ms;
+  -o-transition: color 300ms, background-color 300ms, border-color 300ms, opacity 300ms;
+  -webkit-transition: color 300ms, background-color 300ms, border-color 300ms, opacity 300ms;
+}
+
 .container-fluid {
   max-width: 920px;
   margin-left: auto;
@@ -20,7 +27,9 @@
   padding: 0px 15px;
 }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 
 body {
   background-color: #FFF;
@@ -30,22 +39,62 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; }
+  font-size: 100%;
+}
 
-h1 { margin-bottom: 1em; }
-p { margin: 1em 0; }
+h1 { 
+  margin-bottom: 1em;
+}
+
+p {
+  margin: 1em 0;
+}
 
 a { 
   color: #00a;
+
+  @include fade-in-link;
 }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
+
+a:hover   {
+  color: #000;
+}
+
+a:visited {
+  color: #a0a;
+}
 
 header {
   font-size: 72px !important;
   color: #ddd;
   background-color: #f8f8f8;
   text-align: left;
+}
+
+nav {
+  .dropdown {
+    display: inline-block;
+
+    button {
+      /*This copies most of the default bootstrap button styling*/
+      border: 2px solid rgba(0, 0, 0, 0);
+      background-color: #f8f8f8;
+      color: #333;
+      display: inline-block;
+      padding: 0px 12px;
+      text-align: center;
+      white-space: nowrap;
+      cursor: pointer;
+      background-image: none;
+
+      &:hover,
+      &:focus {
+        @include fade-in-link;
+        border: 2px solid #ddd;
+        color: #ddd;
+      }
+    }
+  }
 }
 
 /*****************************************************************************/
@@ -87,11 +136,6 @@ header {
   line-height: 1.5em;
 }
 
-.header a {
-  font-weight: bold;
-  text-decoration: none;
-}
-
 .title {
   display: inline-block;
   margin-bottom: 2em;
@@ -103,6 +147,11 @@ header {
 
 .title a:hover {
   color: #000;
+}
+
+.header a {
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .header a.extra {
@@ -117,6 +166,9 @@ header {
 .meta {
   color: #aaa;
 }
+
+
+/*Footer*/
 
 .footer {
   font-size: 80%;
