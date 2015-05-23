@@ -2,3 +2,6 @@ name: Alex McNurlin
 markdown: redcarpet
 pygments: true
 exclude: ["vendor"]
+
+sass:
+  sass_dir: /public/css/

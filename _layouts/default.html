@@ -6,13 +6,15 @@
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
 
+        <link href="/public/css/core.css" rel="stylesheet">
+        {% for css in page.css %}
+          <link href="{{ css }}" rel="stylesheet">
+        {% endfor %}
+
 
         <!--le bootsrap-->
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/public/css/syntax.css">
-        <link rel="stylesheet" href="/public/css/new.css">
 
     </head>
     <body>
