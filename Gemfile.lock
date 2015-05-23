@@ -88,7 +88,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll
+  jekyll (~> 2.5.3)
   jekyll-slim
   mina (~> 0.3.0)
   nokogiri (~> 1.6.1)
