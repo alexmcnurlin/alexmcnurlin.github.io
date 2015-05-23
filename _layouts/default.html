@@ -11,22 +11,18 @@
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
         <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-        <link rel="stylesheet" href="/css/new.css">
+        <link rel="stylesheet" href="/public/css/syntax.css">
+        <link rel="stylesheet" href="/public/css/new.css">
 
     </head>
     <body>
         <div class="container">
-            {% include navbar.html %}
+          {% slim navbar.slim %}
 
           {{ content }}
 
-          <footer>
-            <hr>
-              <small class="text-muted">
-                Alex McNurlin | alemcnurlin@gmail.com
-              </small>
-          </footer>
+          {% slim footer.slim %}
+
         </div>
 
             <!--le jquery and bootsrap-->
@@ -34,6 +30,6 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
             <!--jquery scripts-->
-        <script type="text/javascript" src="/js/krsdropdown.js"></script>
+        <script type="text/javascript" src="/public/js/krsdropdown.js"></script>
     </body>
 </html>
