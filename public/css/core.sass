@@ -1,0 +1,42 @@
+---
+---
+// Sass colors! Please use wisely
+
+$light-grey: #bbbbbb
+$background: #e6e6e6
+
+// Sass, for realz!
+
+.container-fluid
+  max-width: 900px
+  padding: 0px 15px
+
+body
+  background-color: $background
+
+h1, h2, h3
+  border-bottom: 1px solid $light-grey
+
+hr
+  border-color: $light-grey
+
+.transition
+  transition: color 300ms, background-color 300ms, border-color 300ms
+
+/* Footer */
+
+a .fa-stack
+
+  .fa-stack-2x
+    color: $light-grey
+    @extend .transition
+
+  .fa-stack-1x
+    color: $background
+
+{% for link in site.data.footer-links %}
+a#{{link.name}}:hover,
+a#{{link.name}}:focus
+  span.fa-stack .fa-stack-2x
+    color: {{link.color}}
+{% endfor %}

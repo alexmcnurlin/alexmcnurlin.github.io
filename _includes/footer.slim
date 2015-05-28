@@ -1,4 +1,9 @@
 footer
   hr
-  small.text-muted
-    | Alex McNurlin | alemcnurlin@gmail.com
+  | {% for link in site.data.footer-links %}
+  a ( href="{{link.url}}" id="{{link.name}}")
+    | <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa {{link.icon}} fa-stack-1x"></i>
+      </span>
+  | {% endfor %}
