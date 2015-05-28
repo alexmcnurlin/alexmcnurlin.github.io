@@ -1,6 +1,6 @@
 name: Alex McNurlin
 markdown: redcarpet
-pygments: true
+highlights: true
 exclude: ["vendor"]
 
 sass:
