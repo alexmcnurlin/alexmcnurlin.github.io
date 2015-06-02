@@ -4,6 +4,7 @@
 
 $light-grey: #bbbbbb
 $background: #e6e6e6
+$primary:    #0091cd
 
 // Sass, for realz!
 
@@ -16,6 +17,23 @@ body
 
 h1, h2, h3
   border-bottom: 1px solid $light-grey
+
+a 
+  color: $primary
+
+  &.text-link
+    &:hover,
+    &:focus
+      background-color: $primary
+      border-radius: 2px
+      color: #fff
+      margin-left:  -3px
+      margin-right: -3px
+      padding-left:  3px
+      padding-right: 3px
+      text-decoration: none
+      @extend .transition
+  
 
 hr
   border-color: $light-grey
