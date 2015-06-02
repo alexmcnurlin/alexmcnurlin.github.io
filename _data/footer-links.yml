@@ -2,4 +2,17 @@
   url: "https://www.facebook.com/alex.mcnurlin?fref=ufi"
   icon: fa-facebook
   color: "#3b5998"
+  stack: true
+
+- name: github
+  url: "https://www.github.com/alexmcnurlin"
+  icon: fa-github
+  color: "#4078C0"
+  stack: false
+
+- name: reddit
+  url: "https://www.reddit.com/u/ninjabassist777"
+  icon: fa-reddit
+  color: "#ff4500"
+  stack: true
 
