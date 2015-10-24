@@ -1,0 +1,6 @@
+- name: "Resume"
+  url: "/resume/"
+- name: "About"
+  url: "/about-me/"
+- name: "Contact"
+  url: "/contact/"

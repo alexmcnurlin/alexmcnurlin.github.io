@@ -2,8 +2,8 @@
 ---
 // Sass colors! Please use wisely
 
-$light-grey: #bbbbbb
-$background: #e6e6e6
+$light-grey: #bdbdbd
+$background: #fafafa
 $primary:    #0091cd
 
 // Sass, for realz!
@@ -11,11 +11,13 @@ $primary:    #0091cd
 .container-fluid
   max-width: 900px
   padding: 0px 15px
+  margin-left: auto
+  margin-right: auto
 
 body
   background-color: $background
 
-h1, h2, h3
+h1
   border-bottom: 1px solid $light-grey
 
 a 
@@ -33,7 +35,7 @@ a
       padding-right: 3px
       text-decoration: none
       @extend .transition
-  
+
 
 hr
   border-color: $light-grey
@@ -41,9 +43,25 @@ hr
 .transition
   transition: color 300ms, background-color 300ms, border-color 300ms
 
+/* Header */
+nav 
+  h1, h2, h3
+    a
+      @extend .transition
+      &:hover
+        color: $background
+        background-color: $primary
+        border-radius: 2px
+        margin-left:  -3px
+        margin-right: -3px
+        padding-left:  3px
+        padding-right: 3px
+        text-decoration: none
+
 /* Footer */
 
 a .fa-stack
+  margin-right: 10px
 
   .fa-stack-2x
     color: $light-grey
