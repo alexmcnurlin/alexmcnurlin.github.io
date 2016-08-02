@@ -1,5 +1,5 @@
 name: Alex McNurlin
-markdown: redcarpet
+markdown: kramdown
 highlights: true
 exclude: ["vendor"]
 
