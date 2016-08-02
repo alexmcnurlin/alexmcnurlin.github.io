@@ -1,17 +1,22 @@
-<footer class="container-fluid">
-  <hr />
-  {% for link in site.data.footer-links %}
-  <a href="{{link.url}}" id="{{link.name}}">
-    {% if link.stack %}
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa {{link.icon}} fa-stack-1x"></i>
+<div class="container-fluid">
+  <footer>
+    {% for link in site.data.footer-links %}
+    <a href="{{link.url}}" id="{{link.name}}">
+      {% if link.stack %}
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa {{link.icon}} fa-stack-1x"></i>
+      </span>
+      {% else %}
+      <span class="fa-stack fa-lg">
+        <i class="fa {{link.icon}} fa-stack-2x"></i>
+      </span>
+      {% endif %}
+    </a>
+    {% endfor %}
+
+    <span class="footer-note">
+    Site last updated {{ site.time | date: '%D, %H:%M:%S' }}
     </span>
-    {% else %}
-    <span class="fa-stack fa-lg">
-      <i class="fa {{link.icon}} fa-stack-2x"></i>
-    </span>
-    {% endif %}
-  </a>
-  {% endfor %}
-</footer>
+  </footer>
+</div>

@@ -1,11 +1,16 @@
 <nav class="container-fluid">
-  <h1>
-    Alex McNurlin
+  <a href="/" class="nav-link-text nav-title">
+    <span class="nav-link-text">
       &nbsp;
-    {% for link in site.data.navbar_links %}
-    <a class="small nav-links" href="{{link.url}}">
+      Alex McNurlin
+      &nbsp;
+    </span>
+  </a>
+  {% for link in site.data.navbar_links %}
+  <a href="{{link.url}}">
+    <span class="nav-link-text">
       &nbsp;&nbsp;{{ link.name }}&nbsp;&nbsp;
-    </a>
-    {% endfor %}
-  </h1>
+    </span>
+  </a>
+  {% endfor %}
 </nav>

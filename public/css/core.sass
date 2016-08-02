@@ -2,9 +2,15 @@
 ---
 // Sass colors! Please use wisely
 
-$light-grey: #bdbdbd
-$background: #fafafa
-$primary:    #0091cd
+$white:        #ffffff
+$light-grey:   #bdbdbd
+$dark:         #444444
+$background:   #fafafa
+$primary:      #42A5F5
+$primary-dark: #1976d2
+
+$accent:       #b18e5f
+//$accent-dark:  #
 
 // Sass, for realz!
 
@@ -36,43 +42,110 @@ a
       text-decoration: none
       @extend .transition
 
-
 hr
   border-color: $light-grey
+
+/* Header */
+nav 
+  align-items: center
+  background: $primary
+  border-bottom: 4px solid $primary-dark
+  display: flex
+  line-height: 4em
+
+  .nav-title
+    color: $white
+    font-size: 2em
+    margin-left: -15px
+    position: relative
+    z-index: 2
+
+  .nav-link-text
+    font-size: 1.3em
+    color: $white
+    position: relative
+    z-index: 2
+
+  a
+    //line-height: 3em
+    @extend .material-button-parent
+    
+    &:before
+      background-color: $primary-dark
+      //opacity: .2
+      @extend .material-button-inactive
+
+    &:hover:before
+      @extend .material-button-active
+
+    &:hover
+      text-decoration: none
+
+/* Footer */
+
+footer 
+  line-height: 2em
+  background-color: $dark
+  padding: 20px
+  margin: -15px
+  margin-top: 50px
+  vertical-align: middle
+  color: $white
+  //display: flex
+  //flex-align: center
+
+  .footer-note
+    float: right
+    line-height: 2.5em
+
+  a .fa-stack
+    margin-right: 10px
+
+    .fa-stack-2x
+      color: $white
+      @extend .transition
+
+    .fa-stack-1x
+      color: $dark
+
+      &:hover
+        color: $white
+
+  {% for link in site.data.footer-links %}
+  a#{{link.name}}:hover,
+  a#{{link.name}}:focus
+    span.fa-stack .fa-stack-2x
+      color: {{link.color}}
+  {% endfor %}
+
+
+/* Extend classes */
 
 .transition
   transition: color 300ms, background-color 300ms, border-color 300ms
 
-/* Header */
-nav 
-  h1, h2, h3
-    a
-      @extend .transition
-      &:hover
-        color: $background
-        background-color: $primary
-        border-radius: 2px
-        margin-left:  -3px
-        margin-right: -3px
-        padding-left:  3px
-        padding-right: 3px
-        text-decoration: none
+.material-button-parent
+  position: relative
+  overflow: hidden
 
-/* Footer */
+.material-button-inactive
+  content: ""
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 0
+  padding-top: 0
+  border-radius: 100%
+  -webkit-transform: translate(-50%, -50%)
+  -moz-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  -o-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  transition: width 100ms ease-out, padding-top 100ms ease-out
+  z-index: 1
 
-a .fa-stack
-  margin-right: 10px
-
-  .fa-stack-2x
-    color: $light-grey
-    @extend .transition
-
-  .fa-stack-1x
-    color: $background
-
-{% for link in site.data.footer-links %}
-a#{{link.name}}:hover,
-a#{{link.name}}:focus
-  span.fa-stack .fa-stack-2x
-    color: {{link.color}}
-{% endfor %}
+.material-button-active
+  text-decoration: none
+  transition: width 300ms ease-out, padding-top 300ms ease-out
+  padding-top: 130%
+  width: 130%
