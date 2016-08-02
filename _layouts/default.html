@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
     <body>
-      {% include head.html %}
+        {% include head.html %}
 
-        {% slim navbar.slim %}
+        {% include navbar.html %}
         {{ content }}
-        {% slim footer.slim %}
-
+        {% include footer.html %}
 
         {% include scripts.html %}
-
     </body>
 </html>

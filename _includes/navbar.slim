@@ -1,8 +1,0 @@
-nav.container-fluid
-  h1
-    | Alex McNurlin
-      &nbsp;
-    | {% for link in site.data.navbar_links %}
-    a.small.nav-links(href="{{ link.url }}")
-      | &nbsp;&nbsp;{{ link.name }}&nbsp;&nbsp;
-    | {% endfor %}

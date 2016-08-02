@@ -1,0 +1,11 @@
+<nav class="container-fluid">
+  <h1>
+    Alex McNurlin
+      &nbsp;
+    {% for link in site.data.navbar_links %}
+    <a class="small nav-links" href="{{link.url}}">
+      &nbsp;&nbsp;{{ link.name }}&nbsp;&nbsp;
+    </a>
+    {% endfor %}
+  </h1>
+</nav>
