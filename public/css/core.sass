@@ -5,9 +5,10 @@
 $white:        #ffffff
 $light-grey:   #bdbdbd
 $dark:         #444444
+$darker:       lighten($dark, 15%)
 $background:   #fafafa
 $primary:      #42A5F5
-$primary-dark: #1976d2
+$primary-dark: darken($primary, 15%)
 
 $accent:       #b18e5f
 //$accent-dark:  #
@@ -82,11 +83,11 @@ nav
       text-decoration: none
 
 /* Footer */
-
 footer 
   line-height: 2em
   background-color: $dark
-  padding: 20px
+  border-top: 4px solid $darker
+  padding: 12px
   margin: -15px
   margin-top: 50px
   vertical-align: middle
