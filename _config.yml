@@ -1,7 +1,11 @@
 name: Alex McNurlin
 markdown: kramdown
 highlights: true
+highlighter: rouge
 exclude: ["vendor"]
 
 sass:
   sass_dir: /public/css/
+
+collections:
+- snippets
