@@ -3,23 +3,33 @@ layout: container-fluid
 title: "Code Snippets"
 permalink: "/code-snippets/"
 css: 
- - "/public/css/code-snippets.css"
- - "/public/css/syntax.css"
+  - "/public/css/code-snippets.css"
+  - "/public/css/syntax.css"
+scripts:
+  - "/public/js/collapseIcon.js"
 ---
 
 <h1>Did somebody say code?</h1> 
 
 Since any good programmer has code snippets to show off, here's some snippets of code in various languages. These will include various things, namely school projects and FizzBuzz programs. 
 
+<div class="panel-group" id="code-snippets">
 {% for snippet in site.snippets %}
-  <div class="panel panel-default">
-    <div class="panel-heading {{ snippet.language | downcase }}">
-      <h3 class="panel-title">{{ snippet.language }}: {{ snippet.title }}</h3>
+    <div class="panel panel-default">
+      <div class="panel-heading {{ snippet.language | downcase }}">
+        <a data-toggle="collapse" data-parent="#code-snippets" href="#{{ snippet.id }}">
+          <i class="fa fa-plus"></i>
+          <h3 class="panel-title">{{ snippet.language }}: {{ snippet.title }}
+          </h3>
+        </a>
+      </div>
+      <div id="{{ snippet.id }}" class="panel-collapse collapse">
+        <div class="panel-body">
+          {{ snippet.description }}
+          </br>
+          {{ snippet.content }}
+        </div>
+      </div>
     </div>
-    <div class="panel-body">
-      {{ snippet.description }}
-      </br>
-      {{ snippet.content }}
-    </div>
-  </div>
 {% endfor %}
+</div>
