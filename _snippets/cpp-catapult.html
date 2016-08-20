@@ -1,0 +1,163 @@
+---
+language: C++
+title: "Catapult"
+description: "This program was originally written for my ENGR220 Dynamics class. The purpose was to design a catapult with various dimensions such that the projectile would travel exactly 100 meters. We had to find the length from the pivot to the projectile, length from pivot to counterweight, and mass of the counterweight"
+id: cpp-catapult
+---
+{% highlight c++ %}
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+float alpha( float theta, float m_0, float r_0, float r_p );
+float omega( float theta, float m_0, float r_0, float r_p );
+bool is_angle( float theta, float m_0, float r_0, float r_p );
+float velocity( float theta, float m_0, float r_0, float r_p );
+float range( float theta, float r_p, float v_0 );
+
+
+int main() {
+  // The length of the pivot to the projectile
+  float r_p_i = 10;        // Initial value
+  float r_p_f = 30;        // Final value
+  float r_p_inc = 1;       // Increment value
+  // The length of the pivot to the counterweight
+  float r_0_i = 0;       // Initial value
+  float r_0_f = r_p_f/2.0; // Final value
+  float r_0_inc = 1;      // Increment value
+
+  // The angle increment size
+  float th_inc = .1;
+
+  // The initial, final and increment values for the counterweight mass
+  float m_i = 1500;        // Initial value
+  float m_f = 2000;        // Final value
+  float m_inc = 1;        // Increment value
+
+  int j = 0;
+
+  // Iterate over the given range for r_p
+  for ( float r_p = r_p_i; r_p <= r_p_f; r_p += r_p_inc ){
+    cout << "Testing r_p = " << r_p << endl;
+
+    // Iterate over the given range forr_0
+    for ( float r_0 = r_0_i; r_0 < r_0_f; r_0 += r_0_inc ){
+    cout << "Testing r_0 = " << r_0 << endl;
+
+      // Iterate over the given range for mass 
+      for ( float m = m_i; m < m_f; m += m_inc ) {
+
+        // Iterate over the given angle in degrees
+        for ( float i=10.0 ; i<90.0 ; i += th_inc ) {
+          // convert to radians. 22/7 is used for pi
+          float theta = i * 22.0/7.0 / 180.0;
+
+          // Just counting how many loops are done
+          j++;
+
+          // Tests if the given angle is the launch angle. 
+          // If it's a launch angle, calculate range
+          // If range is close enough (within .01 meters) print results
+          if ( is_angle( theta, m, r_0, r_p ) ) {
+            float ran = range( theta, r_p, velocity( theta, m, r_0, r_p ) );
+            if ( ran < 0.01 && ran > -0.01 ) {
+              cout << m << ", r_0: " << r_0 << ", r_p: " << r_p <<  
+                ", theta: " << theta*7.0/22.0*180.0 << endl;
+              cout << "    Alpha = " << alpha( theta, m, r_0, r_p ) << endl;
+              cout << "    Omega = " << omega( theta, m, r_0, r_p ) << endl;
+              cout << "    Veocity = " << velocity( theta, m, r_0, r_p ) << endl;
+              cout << "    Range = " << ran << endl;
+            }
+            continue;
+          }
+        }
+      }
+    }
+  }
+
+  // Print out number of loops
+  cout << j << " loops" << endl;;
+
+  return 0;
+}
+
+
+float alpha( float theta, float m_0, float r_0, float r_p ) {
+  // Calculate the angular acceleration
+  // Mass of the beam
+  float m_a = 4.0*(r_0 + r_p);
+  // Gravity
+  float g = 9.8;
+  // Mass of projectile
+  float m_p = 2.0;
+  // Distance from origin to center of gravity for the beam
+  float r_a = ( r_0 + r_p ) / 2.0 - r_0;
+  float alph =  ( g * cos(theta)*( m_0*r_0 - m_a*r_a - m_p*r_p ) ) 
+    / ( m_0*r_0*r_0 +       
+      ( 4.0*r_0 + 4.0*r_p )*( 1.0/12.0*(3.0*0.1*0.1 + (r_0 + r_p)*(r_0 + r_p)) 
+        + (r_a*r_a) ) 
+      + m_p*r_p*r_p );
+  return alph;
+}
+
+
+float omega( float theta, float m_0, float r_0, float r_p ) {
+  // calculate angular velocity
+
+  float alph_prime;
+  // Mass of the beam
+  float m_a = 4.0*(r_0 + r_p);
+  // Gravity
+  float g = 9.8;
+  // Distance from origin to center of gravity for the beam
+  float m_p = 2.0;
+  float r_a = ( r_0 + r_p ) / 2.0 - r_0;
+  // Angular acceleration
+  alph_prime =  ( g * sin(theta)*( m_0*r_0 - m_a*r_a - m_p*r_p ) ) 
+    / ( m_0*r_0*r_0 +       
+      ( 4.0*r_0 + 4.0*r_p )*( 1.0/12.0*(3.0*0.1*0.1 + (r_0 + r_p)*(r_0 + r_p)) 
+        + (r_a*r_a) ) 
+      + m_p*r_p*r_p );
+ 
+  // Angular velocity
+  float omg = sqrt( 2*alph_prime );
+  return omg;
+}
+
+
+bool is_angle( float theta, float m_0, float r_0, float r_p ) {
+  // Gravity
+  float g = 9.8;
+  // Angular velocity
+  float omg =  omega( theta, m_0, r_0, r_p );
+  // Angular acceleration
+  float alph = alpha( theta, m_0, r_0, r_p );
+  // Tests if the projectile will have been launched at the given angle
+  float r_side = -(alph*r_p*cos(theta) - omg*omg*r_p*sin(theta)) - g;
+  if ( ( r_side < 0.1 ) && ( r_side > -0.1 ) ) {
+    return 1;
+  }
+  return 0;
+}
+
+
+float velocity( float theta, float m_0, float r_0, float r_p ) {
+  // Calculates the velocity of the projectile at launch
+  float v_0 = omega( theta, m_0, r_0, r_p )*r_p;
+  return v_0;
+}
+
+
+float range( float theta, float r_p, float v_0 ) {
+  // Calculates the range that the projectile will cover
+  // 22/7 is pi
+  float phi = 22.0/7.0/2.0 - theta;
+  // Gravity
+  float g = 9.81;
+  // The distance traveled minus 100. If this is 0, then the projectile 
+  // travelled 100m
+  float distance = v_0*cos(phi)/g*(v_0*sin(phi)+sqrt(v_0*v_0*sin(phi)*sin(phi) 
+        + 2.0*g*r_p*sin(theta))) - r_p*cos(theta) - 100.0;
+  return distance;
+}
+{% endhighlight %}

@@ -1,0 +1,157 @@
+---
+language: Python
+title: "Targets"
+description: "This was a program I wrote for my ENGR220 Dynamics class. The program simulates throwing a projectile at various trajectories and measuring it's distance to 5 targets. It then selects which trajectory is closest to all of the targets. The program determines what is the closes based on criteria defined by the professor"
+id: python-targets
+---
+{% highlight python %}
+
+#! /usr/bin/env python3
+# File: project1.py
+# Alex McNurlin
+# 1/28/16
+# Engr220 Project 1
+import math
+# This defines a function that returns the values of theta, v_0, x_0 to use
+import initial_values 
+import multiprocessing
+
+
+def score(distance):
+  '''
+  Calculates the score when given the distance to a target.
+  Note: It ignores hitting the target 'exactly' since that's an unrealistic goal.
+  '''
+  if distance < 1:
+    return 8
+  elif distance < 2:
+    return 6
+  elif distance < 3:
+    return 4
+  elif distance < 5:
+    return 2
+  else:
+    return 0
+
+
+def run_job(i, n, queue): # i is the index of the process, n is the number of processors, return_dict should be the return value.
+  '''
+  A function that will run the simulation as a new process.
+  The first argument is the index of the process. 
+  The second argument is the number of processes to be used.
+  The third argument is a dictionary that stores the return value.
+  '''
+
+  print("------------------------Starting job %d------------------------" % i)
+
+  return_list = closest_target(targets, th_i + (i * (th_f - th_i)/n) , th_i + (i+1) * (th_f - th_i)/n, th_inc, v_i, v_f, v_inc, x_i, x_f, x_inc, t_inc)
+
+  # This puts the values into a queue that can be accessed by the main process
+  print(return_list)
+  queue[i].put(return_list) 
+
+
+def closest_target(targets, th_i, th_f, th_inc, v_i, v_f, v_inc, x_i, x_f, x_inc, t_inc):
+  '''
+  A program that models a projectile flying though the air to hit some targets. Takes no arguments
+  Returns (angle, velocity, position, total_score)
+  '''
+  minimal = 100 # This is the total score, set to an arbitrarily high number
+
+  # The program loops over angle (in degrees), then inital velocity, then initial position, then time.
+  theta = th_i
+  while ( theta < th_f ):
+
+    v_0 = v_i
+    while ( v_0 < v_f ):
+
+      x_0 = x_i
+      while ( x_0 < x_f ):
+
+        target_distances = [1000] * len(targets)
+        t=0
+        while (1):
+          t = t + t_inc 
+
+          # Position functions for our projectile
+          x = (math.cos(theta * 3.14/180) * v_0 * t) + x_0
+          y = (math.sin(theta * 3.14/180) * v_0 * t) + (-4.9*(t**2))
+
+          # This takes the distance from each of the targets and records it for each time increment. If the previously recorded value is lower, nothing is recorded. 
+          for i in range(len(targets)):
+            target_distance = math.hypot( targets[i][0]-x, targets[i][1]-y )
+            if target_distances[i] > target_distance:
+              target_distances[i] = target_distance
+
+          # This breaks out of the current loop if the projectile has hit the ground
+          if ( y<0 ):
+
+            # Computes total score for the targets. This is used to define the most optimal path
+            total = 0
+            for i in range(len(targets)):
+              #total = total + score(target_distances[i])
+              total = total + target_distances[i] #Change for part 2
+            if ( total > 20 ): # This skips a lot when the distances are too far #Change for part 2
+              x_0 = x_0 + x_inc * 10
+            if ( minimal >= total ): #Change for part 2
+              minimal = total
+              print("Score: %s\t Angle: %s\t V_0: %s\t X_0: %s\t distances:  %s\t %s\t %s\t %s\t %s\t" % (round(total, 3), round(theta, 1), round(v_0, 4), round(x_0,3), round(target_distances[0],3), round(target_distances[1],3), round(target_distances[2],3), round(target_distances[3],2), round(target_distances[4], 2)))
+              optimal = [ round(theta, 3), round(v_0, 2), round(x_0, 2), minimal ]
+
+            break
+            
+        x_0 = x_0 + x_inc
+      v_0 = v_0 + v_inc
+    theta = theta + th_inc
+  return(optimal)
+
+
+if __name__ == "__main__":
+  # The x and y coordinates for each target
+  targets = ((5,6),(8,8),(10,14),(12,5),(15,2))
+
+  conditions = initial_values.set_initial_conditions()
+
+  th_i = conditions[0]
+  th_f = conditions[1]
+  th_inc = conditions[2]
+
+  v_i = conditions[3]
+  v_f = conditions[4]
+  v_inc = conditions[5]
+
+  x_i = conditions[6]
+  x_f = conditions[7]
+  x_inc = conditions[8]
+
+  t_inc = conditions[9]
+
+
+  # The program will now fork into 4 different processes for efficiency
+  # n is the number of processes to be created. 
+  n = 4
+  queue = [0] * n
+  jobs = [1] * n
+  for i in range(n):
+    queue[i] = multiprocessing.Queue()
+    jobs[i] = multiprocessing.Process(name='worker ' + str(i), target=run_job, args=(i, n, queue))
+
+  for proc in jobs:
+    proc.start()
+
+  return_values = [0] * n
+  for i in range(n):
+    jobs[i].join()
+    return_values[i] = queue[i].get()
+    print("Job %d is finished" % i)
+
+  # This takes the optimum score from the given list of potential values
+  temp = 1000 #Change for part 2
+  temp_i = 0
+  for return_value in return_values:
+    if return_value[3] < temp: #Change for part 2
+      temp = return_value[3]
+      temp_i = return_value
+
+  print(temp_i)
+{% endhighlight %}
