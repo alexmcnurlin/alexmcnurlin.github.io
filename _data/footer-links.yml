@@ -1,24 +1,37 @@
-- name: email
+- name: Email
   url: "mailto:alemcnurlin@gmail.com"
   icon: fa-envelope
   color: "#db4437"
+  description: "alemcnurlin@gmail.com"
   stack: true
+  footer: true
 
-- name: facebook
-  url: "https://www.facebook.com/alex.mcnurlin?fref=ufi"
-  icon: fa-facebook
-  color: "#3b5998"
-  stack: true
-
-- name: github
+- name: Github
   url: "https://www.github.com/alexmcnurlin"
   icon: fa-github
   color: "#4078C0"
+  description: "User: alexmcnurlin"
   stack: false
+  footer: true
 
-- name: reddit
+- name: Phone
+  url: "tel:1-208-721-3815"
+  icon: fa-phone
+  color: "#66bb6a"
+  description: "Phone number: 1 (208) 721-3815"
+  stack: true
+  footer: false
+
+- name: Reddit
   url: "https://www.reddit.com/u/ninjabassist777"
   icon: fa-reddit
   color: "#ff4500"
   stack: true
+  footer: true
 
+- name: Facebook
+  url: "https://www.facebook.com/alex.mcnurlin?fref=ufi"
+  icon: fa-facebook
+  color: "#3b5998"
+  stack: true
+  footer: true

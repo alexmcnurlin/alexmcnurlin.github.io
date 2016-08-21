@@ -1,0 +1,33 @@
+---
+layout: default
+permalink: "/contact/"
+css: "/public/css/contact.css"
+---
+
+<div class="container-fluid">
+  <h1>Contact Me</h1>
+
+  <p>Below are a few links to various forms of contact or social media profiles. I'd love to hear from you!</p>
+  <p>I am reliably available for contact via the email listed below. I am also available via text message at any time, or via call whenever I'm not in class or otherwise busy.</p>
+  <div class="container-fluid">
+    {% for link in site.data.footer-links %}
+      <a href="{{ link.url }}">
+        {% if link.stack %}
+        <span class="fa-stack fa-lg pull-left">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa {{link.icon}} fa-stack-1x"></i>
+        </span>
+        {% else %}
+        <span class="fa-stack fa-lg pull-left">
+          <i class="fa {{link.icon}} fa-stack-2x"></i>
+        </span>
+
+        {% endif %}
+        <h3 class="contact-name">&nbsp;{{ link.name }}</h3>
+        {% if link.description %}
+        <li class="contact-description">{{ link.description }}</li>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </div>
+</div>
