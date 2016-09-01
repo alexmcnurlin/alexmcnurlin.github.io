@@ -1,16 +1,18 @@
-<nav class="container-fluid">
-  <a href="/" class="nav-link-text nav-title">
-    <span class="nav-link-text">
-      &nbsp;
-      Alex McNurlin
-      &nbsp;
-    </span>
-  </a>
-  {% for link in site.data.navbar_links %}
-  <a href="{{link.url}}">
-    <span class="nav-link-text">
-      &nbsp;&nbsp;{{ link.name }}&nbsp;&nbsp;
-    </span>
-  </a>
-  {% endfor %}
+<nav>
+  <div class="container-fluid">
+    <a href="/" class="nav-link-text nav-title">
+      <span class="nav-link-text">
+        &nbsp;
+        Alex McNurlin
+        &nbsp;
+      </span>
+    </a>
+    {% for link in site.data.navbar_links %}
+    <a href="{{link.url}}">
+      <span class="nav-link-text">
+        &nbsp;&nbsp;{{ link.name }}&nbsp;&nbsp;
+      </span>
+    </a>
+    {% endfor %}
+  </div>
 </nav>

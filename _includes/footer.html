@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <footer>
+<footer>
+  <div class="container-fluid">
     {% for link in site.data.footer-links %}
     {% if link.footer %}
       <a href="{{link.url}}" id="{{link.name}}">
@@ -20,5 +20,5 @@
     <span class="footer-note">
     Site last updated {{ site.time | date: '%D, %H:%M:%S' }}
     </span>
-  </footer>
-</div>
+  </div>
+</footer>
