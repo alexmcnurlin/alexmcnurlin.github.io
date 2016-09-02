@@ -6,19 +6,19 @@ permalink: "/resume/"
 
 # Resume
 
-##Alex McNurlin
+## Alex McNurlin
 
 *Address: 931 Public Avenue, Moscow ID 83843*
 
-###Career Summary
+### Career Summary
   
   Two years of work in web development and programming, as well as the beginning of education in Computer Science and Mechanical Engineering.
 
-###Career Objective
+### Career Objective
 
   Long term career goals include writing software that will take advantage of an education in both Computer Science and Mechanical Engineering. 
 
-###Education
+### Education
 
   * Pursuing Bachelors degrees in both Computer Science and Mechanical Engineering, as well as a minor in Math
 
@@ -26,7 +26,7 @@ permalink: "/resume/"
 
   * 3.78 GPA
 
-###Skills:
+### Skills:
 
 * Front end and back end web development
 
@@ -47,7 +47,7 @@ permalink: "/resume/"
   - HTML/CSS
   - Bash
 
-###Professional Experience
+### Professional Experience
 
 Kickback Rewards Systems, Intern of Software Development (2014-current)
 
@@ -56,10 +56,10 @@ Kickback Rewards Systems, Intern of Software Development (2014-current)
   * HTML, CSS, and JavaScript for front end development
   * PHP and Python for back end development
 
-###Contact Info
+### Contact Info
 
   * Phone: 208-721-3815 (text/call)
   * Email: alemcnurlin@gmail.com
 
-###Code Snippets
+### Code Snippets
   You can view snippets of code I've created in various languages at http://www.alexmcnurlin.github.io/code-snippets
