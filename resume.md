@@ -6,6 +6,7 @@ permalink: "/resume/"
 # Resume
 
 ##Alex McNurlin
+
 *Address: 931 Public Avenue, Moscow ID 83843*
 
 ###Career Summary
@@ -58,3 +59,6 @@ Kickback Rewards Systems, Intern of Software Development (2014-current)
 
   * Phone: 208-721-3815 (text/call)
   * Email: alemcnurlin@gmail.com
+
+###Code Snippets
+  You can view snippets of code I've created in various languages at http://www.alexmcnurlin.github.io/code-snippets
