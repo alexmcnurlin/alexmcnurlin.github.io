@@ -22,13 +22,13 @@ scripts:
 {% for snippet in site.snippets %}
     <div class="panel panel-default">
       <div class="panel-heading {{ snippet.language | downcase }}">
-        <a data-toggle="collapse" data-parent="#code-snippets" href="#{{ snippet.id }}">
+        <a data-toggle="collapse" data-parent="#code-snippets" href="#{{ snippet.identifier }}">
           <i class="fa fa-plus"></i>
           <h3 class="panel-title">{{ snippet.language }}: {{ snippet.title }}
           </h3>
         </a>
       </div>
-      <div id="{{ snippet.id }}" class="panel-collapse collapse">
+      <div id="{{ snippet.identifier }}" class="panel-collapse collapse">
         <div class="panel-body">
           {{ snippet.description }}
           </br>
