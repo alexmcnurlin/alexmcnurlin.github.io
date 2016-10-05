@@ -12,20 +12,9 @@ css: "/public/css/contact.css"
   <div class="container-fluid">
     {% for link in site.data.footer-links %}
       <a href="{{ link.url }}">
-        {% if link.stack %}
-        <span class="fa-stack fa-lg pull-left">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa {{link.icon}} fa-stack-1x"></i>
-        </span>
-        {% else %}
-        <span class="fa-stack fa-lg pull-left">
-          <i class="fa {{link.icon}} fa-stack-2x"></i>
-        </span>
-
-        {% endif %}
         <h3 class="contact-name">&nbsp;{{ link.name }}</h3>
         {% if link.description %}
-        <li class="contact-description">{{ link.description }}</li>
+        <p class="contact-description"><i>{{ link.description }}</i></p>
         {% endif %}
       </a>
     {% endfor %}

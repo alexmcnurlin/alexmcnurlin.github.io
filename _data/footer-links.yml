@@ -22,10 +22,10 @@
   stack: true
   footer: false
 
-- name: Reddit
-  url: "https://www.reddit.com/u/ninjabassist777"
-  icon: fa-reddit
-  color: "#ff4500"
+- name: Linkedin
+  url: "https://www.linkedin.com/in/alex-mcnurlin-3b319ba6?authType=NAME_SEARCH&authToken=IDv2&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A376689015%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1475651275147%2Ctas%3Aalex%20mcn"
+  icon: fa-linkedin
+  color: "#0077B4"
   stack: true
   footer: true
 
