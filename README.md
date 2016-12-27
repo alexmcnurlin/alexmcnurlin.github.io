@@ -6,6 +6,12 @@ This is my website! Built with love, tears, and Bootstrap 3. Mostly Bootstrap 3
 # Setting up and deploying
 
 ## First time setup
+clone the repo into the current directory (This will create a folder called alexmcnurlin.github.io in the current directory)
+
+```
+git clone https://www.github.com/alexmcnurlin/alexmcnurlin.github.io
+```
+
 Install the following
 
 	* [`bundle`](http://bundler.io/)
