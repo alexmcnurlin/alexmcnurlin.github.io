@@ -1,0 +1,63 @@
+---
+language: Python
+title: "Finite difference formula"
+description: "This program was written for my Numerical Methods class. This program was to use the finite difference formula to approximate the tangent function, and show how the error of the approximation changes with different inputs. Also, this program shows how the error of the function is affected as the input approaches machine epsilon."
+identifier: python-fin-diff
+---
+{% highlight python %}
+
+# Name: Alex McNurlin
+# Assignment: MATH428, HW2 CP1.4
+# Date: 1/25/17
+# File: hw2_cp1-4.py
+# python2.7.13
+from math import tan, cos, sqrt
+import numpy as np
+import matplotlib.pyplot as plt
+
+def fin_diff(f, x, h):
+    f_hat = np.vectorize(f)
+    return np.true_divide(f_hat(x+h)-f_hat(x), h)
+
+def central_fin_diff(f, x, h):
+    f_hat = np.vectorize(f)
+    return np.true_divide(f_hat(x+h)-f_hat(x-h), 2*h)
+
+if __name__ == "__main__":
+    start = 1
+    end = 17
+    actual_tan_prime = (1/cos(1))**2
+    # Create an array with values from 1 to 20, with the type 'long'
+    k = np.arange(start, end)
+    h = .1**k
+    # Approximate e
+    approx_tan_prime = fin_diff(tan, 1, h)
+    # Calculate and print error
+    abs_error = abs(approx_tan_prime - actual_tan_prime)
+    rel_error = abs_error/float(actual_tan_prime)
+
+    print("Min error: {}".format(min(abs_error)))
+    # Well this line is really a mess. It just prints out 
+    # the approximate ideal value of h
+    print("Approx best h: {}".format(sqrt(np.finfo(type(approx_tan_prime[0])).eps)))
+
+    # Plot results
+    fig1 = plt.figure(figsize=(5,3.75))
+
+    plt.title('Tangent using finite difference: error vs h')
+    plt.plot(h, abs_error, label="Absolute error")
+    plt.plot(h, rel_error, label="Relative error")
+    plt.legend(loc="lower right")
+
+    #plt.xticks(range(start, end))
+    plt.xscale('log')
+    plt.xlabel('h (logarithmic scale)')
+    plt.gca().invert_xaxis()
+
+    plt.yscale('log')
+    plt.ylabel('Error (logarithmic scale)')
+
+    fig1.tight_layout()
+    plt.savefig('fig_cp1-7.png', dpi=96)
+
+{% endhighlight %}

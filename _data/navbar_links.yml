@@ -4,3 +4,5 @@
   url: "/about-me/"
 - name: "Contact"
   url: "/contact/"
+- name: "Code Snippets"
+  url: "/code-snippets/"
