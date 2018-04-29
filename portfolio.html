@@ -1,0 +1,45 @@
+---
+layout: default
+permalink: "/portfolio/"
+css: "/public/css/portfolio.css"
+---
+
+<div class="container-fluid">
+    <h1>Portfolio</h1>
+
+    <div class="container-fluid">
+        {% for item in site.data.projects %}
+
+        <div class="panel">
+            <div class="panel-heading"><strong>{{ item.name }}</strong></div>
+
+            <div class="panel-body">
+                {% if item.image %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <em class="label label-default">{{ item.type }}</em><br>
+                            {% for li in item.text %}
+                                <p>{{ li }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="col-sm-6">
+                            <img class="img-fluid" src="{{ item.image }}">
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <em class="label label-default">{{ item.type }}</em><br>
+                            {% for li in item.text %}
+                                <p>{{ li }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+</div>

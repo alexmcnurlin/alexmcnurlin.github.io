@@ -1,0 +1,35 @@
+- name: "Coin Sorter"
+  type: "Mechanical Engineering class project"
+  image: "/public/img/coin_sorter.jpg"
+  text:
+    - I worked on a team of 5 engineering students to design and build a coin sorting machine.
+    - We used a pair of Optical Interrupter to detect what type of coin was inserted into the machine.
+    - When the type of coin was detected, it was sorted into 1 of 4 bins using a series of servos.
+    - This project included prototyping, managing a budget, managing a deadline, and communicating with the team.
+
+- name: "Calculator Android App"
+  type: "Ongoing personal project"
+  text:
+    - I feel like all calculator apps available for phones aren't as full-featured as they could be.
+    - I'm working on an Android app in Java that would implement many of the features I feel other apps are lacking.
+    - This also gives me a place to practice implementing algorithms for numerical computation.
+    - "<a href='https://github.com/alexmcnurlin/ProjectSquanch'>Source code available here</a>"
+
+- name: "Comparison of Programming Languages"
+  type: "Numerical Linear Algebra class project"
+  text:
+    - "This project compared the runtimes of a few different programming languages using a few different numerical algorithms."
+    - "Programming languages used included: C, C (with gcc optimization flags), Fortran, Fortran (with quadruple precision floating point numbers), Octave, Python, Python/Numpy."
+    - "The following algorithms were used to compare runtimes: LU factorization, Cholesky factorization to solve the least squares problem, and QR factorization."
+    - "Compiled languages (C and Fortran) ran much faster than the interpreted languages. Fortran with 128-bit precision ran about 8 times slower than Fortran with 64-bit precision. Python with Numpy often ran as fast as C, while Python without Numpy was often much slower."
+    - "More details, as well as plots of the results, can be found below in the writeup for the project:
+        <div class='btn-group' role='group' aria-label='...'>
+          <a class='btn btn-primary' href='/public/doc/math432_project.pdf' download='math432_project.pdf'><span class='fa fa-download'></span> Download</a>
+          <a class='btn btn-primary' href='/public/doc/math432_project.pdf'><span class='fa fa-eye'></span> View</a>
+        </div>"
+
+- name: "This website"
+  type: "Ongoing personal project"
+  text:
+    - "This website was built by me to act as a portfolio showing web design capabilities."
+    - "Frameworks used include Bootstrap 3, Jekyll, jQuery, and SASS."

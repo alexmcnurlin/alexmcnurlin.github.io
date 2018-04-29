@@ -1,19 +1,18 @@
 alexmcnurlin.github.io
 ======================
 
-This is my website! Built with love, tears, and Bootstrap 3. Mostly Bootstrap 3
+This is my website! Built with love, tears, Jekyll, and Bootstrap 3. Mostly Bootstrap 3
 
 # Setting up and deploying
 
 ## First time setup
-clone the repo into the current directory (This will create a folder called alexmcnurlin.github.io in the current directory)
+Clone the repo into the current directory (This will create a folder called alexmcnurlin.github.io in the current directory)
 
 ```
 git clone https://www.github.com/alexmcnurlin/alexmcnurlin.github.io
 ```
 
-###Install the following
-
+### Install the following
 * [`bundle`](http://bundler.io/)
 	- bundle Requires [RubyGems](https://rubygems.org/pages/download)
 		* RubyGems requires [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (I'd reccomend installing with [rvm](https://rvm.io/))
