@@ -1,5 +1,5 @@
-# - name: "Resume"
-  # url: "/resume/"
+- name: "Resume"
+  url: "/resume/"
 - name: "Portfolio"
   url: "/portfolio/"
 - name: "Code Snippets"
