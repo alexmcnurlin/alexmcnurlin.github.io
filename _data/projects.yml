@@ -2,10 +2,19 @@
   type: "Mechanical Engineering class project"
   image: "/public/img/coin_sorter.jpg"
   text:
-    - I worked on a team of 5 engineering students to design and build a coin sorting machine.
+    - I worked on a team of 5 Mechanical Engineering students to design and build a coin sorting machine.
     - We used a pair of Optical Interrupter to detect what type of coin was inserted into the machine.
     - When the type of coin was detected, it was sorted into 1 of 4 bins using a series of servos.
     - This project included prototyping, managing a budget, managing a deadline, and communicating with the team.
+
+- name: "Sad Pancake"
+  type: "Computer Science class project"
+  image: "/public/img/sad_pancake.png"
+  text:
+    - Worked with a team of 6 Computer Science students to create a game as a semester long project.
+    - Used Unity to create a platformer that features a very sad pancake.
+    - Used object oriented design patterns to modularize code.
+    - The biggest takeaway from this project is the importance of planning the structure of code before programming to get a clear idea of what needs to be done. Nearly half of the project required drawing UML diagrams, designing tests, and estimating time. All before a single line of code was written.
 
 - name: "Calculator Android App"
   type: "Ongoing personal project"

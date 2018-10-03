@@ -1,0 +1,69 @@
+---
+language: Python
+title: "Affine cipher"
+description: "This is a small script created to check my work on homework for MATH415 Cryptography. It is an implementation of the affine cipher."
+identifier: python-affine
+---
+{% highlight python %}
+
+#! /usr/bin/env python3
+
+def affine_generator(mult, add, mod=26):
+    def affine(x):
+        retval = ""
+        print("Encrypt function $\Rightarrow {}*x + {}$\\".format(mult, add))
+        for char in x:
+            c = (ord(char) % 32) - 1
+            char_code = (c*mult + add) % mod
+            ascii = char_code + 65
+            retval += chr(ascii)
+            print(r"${} = {} \Rightarrow {}*{} + {} = {} = {}$ \\".format(char, c, mult, c, add, ascii, chr(ascii)))
+        print(r"Ciphertext: {}".format(retval.upper()))
+        return retval
+
+    i = 1
+    while i < mult*mod:
+        if mult*i % mod == 1:
+            break
+        i += 1
+
+    def unaffine(x):
+        retval = ""
+        print(r"The inverse of {} (mod {}) is {} \\".format(mult, mod, i))
+        print("Decrypt function $\Rightarrow {}*x - {}$\\".format(i, add))
+        for char in x:
+            c = (ord(char) % 32) - 1
+            char_code = (c-add)*i % mod
+            ascii = char_code + 65
+            retval +=  chr(ascii)
+            print(r"${} = {} \Rightarrow {}*{} - {} = {} = {}$ \\".format(char, c, i, c, add, char_code, chr(ascii)))
+        print(r"Plaintext: {} \\".format(retval.lower()))
+        return retval
+    
+    return affine, unaffine
+
+def devise_affine(plain, cipher, mod=26, mult=None, add=None):
+    cipher = cipher[:len(plain)]
+    if not mult:
+        mult = (0, mod)
+    if not add:
+        add = (0, mod)
+    for i in range(mult):
+        for j in range(add):
+            a, u = affine_generator(1, j, mod)
+            u(cipher)
+            if a(plain).lower() == cipher.lower():
+                print("{}*x + {}".format(i, j))
+                return a, u
+
+def decrypt_affine(cipher, mod=26, mult=None, add=None):
+    if not mult:
+        mult = (0, mod)
+    if not add:
+        add = (0, mod)
+    for i in range(*mult):
+        for j in range(*add):
+            a, u = affine_generator(1, j, mod)
+            u(cipher)
+            print("{}*x + {}".format(i, j))
+{% endhighlight %}
