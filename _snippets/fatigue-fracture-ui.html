@@ -1,0 +1,55 @@
+---
+language: CSharp
+title: "Sheet Metal Fatigue UI"
+description: "This is a single file from the UI of my senior projecti"
+identifier: sheet-metal
+---
+{% highlight razor %}
+
+@page "/"
+@using BeachBoys.Data
+
+<div class="list-group">
+	@foreach (var experiment in ExperimentStore.experiments)
+	{
+		<a class="list-group-item list-group-item-action experiment-list-item" href="/experiment/@experiment.Id">
+			<span class="badge badge-primary badge-pill experiment-count">@experiment.Runs.Count()</span>
+			<span class="experiment-name">@experiment.Name</span>
+			<button href="/export/@experiment.Id" class="btn btn-info btn-export">Export</button>
+		</a>
+	}
+	<div class="list-group-item">
+		<div class="input-group">
+			<input class="form-control" type="text" placeholder="new-material" name="material-name" @bind="newExperimentName"/>
+			<div class="input-group-append input-group-btn">
+				<button class="btn-success btn" @onclick="Submit">Create</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+@functions {
+	private static string? newExperimentName;
+	public static void Submit()
+	{
+		Console.WriteLine($"Submitting with {newExperimentName}");
+		if (newExperimentName != null)
+		{
+			ExperimentStore.experiments.Add(new Experiment(newExperimentName));
+			newExperimentName = null;
+		}
+		else
+		{
+		// Do nothing
+		}
+	}
+
+	public static void TodoRemoveMe()
+	{
+		ExperimentStore.experiments.Add( new Experiment("Another test"));
+	}
+
+}
+
+{% endhighlight %}

@@ -1,3 +1,10 @@
+- name: "Sheet Metal Fatigue Fixutre (In progress)"
+  type: "Senior Design Project"
+  text:
+    - I am collaborating with 3 other students and our client, Schweitzer Engineering Laboratories, to build a fixture to generate an S-N Curve for a few samples of sheet metal.
+    - The fixture will apply an oscillating load (fully or partially reversed) at up to 100hz.
+    - I will be responsible for programming the software behind the project, including user interface, data collection, control systems, and generating the S-N curve.
+
 - name: "Coin Sorter"
   type: "Mechanical Engineering class project"
   image: "/public/img/coin_sorter.jpg"
